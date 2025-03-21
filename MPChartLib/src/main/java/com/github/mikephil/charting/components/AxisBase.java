@@ -151,6 +151,10 @@ public abstract class AxisBase extends ComponentBase {
      */
     public float mAxisRange = 0f;
 
+    private float[] mCustomLabels = new float[]{};
+
+    private boolean mUseCustomLabels = false;
+
     /**
      * default constructor
      */
@@ -778,5 +782,21 @@ public abstract class AxisBase extends ComponentBase {
     public void setSpaceMax(float mSpaceMax)
     {
         this.mSpaceMax = mSpaceMax;
+    }
+
+    public void setCustomLabels(float[] customLabels) {
+        this.mCustomLabels = customLabels;
+    }
+
+    public float[] getCustomLabels() {
+        return mCustomLabels;
+    }
+
+    public void setDrawCustomLabels(boolean enabled) {
+        mUseCustomLabels = enabled;
+    }
+
+    public boolean isDrawCustomLabels() {
+        return mUseCustomLabels;
     }
 }
