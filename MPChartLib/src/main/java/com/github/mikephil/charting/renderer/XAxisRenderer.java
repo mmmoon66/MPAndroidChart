@@ -69,8 +69,14 @@ public class XAxisRenderer extends AxisRenderer {
 
     @Override
     protected void computeAxisValues(float min, float max) {
-        super.computeAxisValues(min, max);
-
+        if (mXAxis.isDrawCustomLabels()) {
+            float[] labels = mXAxis.getCustomLabels();
+            mXAxis.mEntries = labels;
+            mXAxis.mCenteredEntries = labels;
+            mXAxis.mEntryCount = labels.length;
+        } else {
+            super.computeAxisValues(min, max);
+        }
         computeSize();
     }
 

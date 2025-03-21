@@ -349,4 +349,16 @@ public class YAxisRenderer extends AxisRenderer {
             c.restoreToCount(clipRestoreCount);
         }
     }
+
+    @Override
+    protected void computeAxisValues(float min, float max) {
+        if (mYAxis.isDrawCustomLabels()) {
+            float[] labels = mYAxis.getCustomLabels();
+            mYAxis.mEntries = labels;
+            mYAxis.mCenteredEntries = labels;
+            mYAxis.mEntryCount = labels.length;
+        } else {
+            super.computeAxisValues(min, max);
+        }
+    }
 }
